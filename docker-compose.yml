@@ -1,0 +1,24 @@
+version: '3.9'
+services: 
+  genieacs-cwmp:
+    image: mths0x5f/genieacs-cwmp:latest
+    build: ./genieacs-cwmp
+    environment: 
+      - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongodb/genieacs
+    ports: 
+      - 7547:7547
+  genieacs-nbi:
+    image: mths0x5f/genieacs-nbi:latest
+    build: ./genieacs-nbi
+    ports: 
+      - 7557:7557
+  genieacs-fs:
+    image: mths0x5f/genieacs-fs:latest
+    build: ./genieacs-fs
+    ports: 
+      - 7567:7567
+  genieacs-ui:
+    image: mths0x5f/genieacs-ui:latest
+    build: ./genieacs-ui
+    ports: 
+      - 3000:3000
